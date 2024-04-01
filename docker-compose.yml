@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  neo4j:
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*,gds.*
+      - NEO4J_dbms_security_procedures_whitelist=apoc.*,gds.*
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_PLUGINS=["apoc", "graph-data-science"]
+    volumes:
+      - neo4j-plugins:/plugins
+      - neo4j-data:/data
+      - ./neo4j/import:/import
+      - ./neo4j/export:/export
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: docker/jupyter.Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - NB_UID=${NB_UID}
+      - NB_GID=${NB_GID}
+      - JUPYTER_ENABLE_LAB=yes
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
+    volumes:
+      - ./jupyter:/home/jovyan/
+      - ./jupyter/requirements.txt:/tmp/requirements.txt
+    depends_on:
+      - neo4j
+
+volumes:
+  neo4j-plugins:
+    driver: local
+  neo4j-data:
+    driver: local
+  postgres-data:
+    driver: local
