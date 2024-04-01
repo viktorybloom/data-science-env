@@ -32,7 +32,6 @@ services:
     command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
     volumes:
       - ./jupyter:/home/jovyan/
-      - ./jupyter/requirements.txt:/tmp/requirements.txt
     depends_on:
       - neo4j
 
