@@ -3,6 +3,8 @@ jupyter - http://127.0.0.1:8888/
 
 Data Science Notebook: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
 
+Edit `./jupyter/requirements.txt` to set pip packages to include in jupyter notebooks environment. 
+
 
 neo4j - http://127.0.0.1:7474/
 
@@ -19,6 +21,6 @@ Run `make help` to view available actions to interact with environment.
 
 `logs`                           Show logs for all running containers
 
-`run`                            Normal command for running a dev environment
+`run`                            Normal command for running environment
 
 `stop`                           Stop containers
