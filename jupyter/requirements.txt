@@ -6,7 +6,6 @@ Scikit-learn
 SciPy
 Statsmodels
 TensorFlow
-PyTorch
 Keras
 Scrapy
 NLTK
