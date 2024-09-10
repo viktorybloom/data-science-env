@@ -9,5 +9,7 @@ ENV NEO4J_AUTH=neo4j/password \
     NEO4J_dbms_security_procedures_unrestricted=apoc.*,gds.* \
     NEO4J_dbms_security_procedures_whitelist=apoc.*,gds.* \
     NEO4J_apoc_import_file_enabled=true \
-    NEO4J_apoc_export_file_enabled=true \
-    NEO4J_PLUGINS=["apoc", "graph-data-science"]
+    NEO4J_apoc_export_file_enabled=true
+
+
+
