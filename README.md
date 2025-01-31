@@ -24,3 +24,7 @@ Run `make help` to view available actions to interact with environment.
 `run`                            Normal command for running environment
 
 `stop`                           Stop containers
+
+stop all containers and purge docker:
+
+`docker system prune -af`
