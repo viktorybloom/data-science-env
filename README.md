@@ -25,6 +25,9 @@ Run `make help` to view available actions to interact with environment.
 
 `stop`                           Stop containers
 
+
+Useful: 
+
 stop all containers and purge docker:
 
 `docker system prune -af`
